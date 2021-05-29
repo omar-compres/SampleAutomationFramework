@@ -1,0 +1,8 @@
+selenium==3.141
+assertlib
+pyvirtualdisplay
+pytest==6.0.0
+pytest-xdist
+pytest-selenium
+pytest-variables
+delayed-assert
