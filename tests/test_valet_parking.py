@@ -1,13 +1,20 @@
-import time
+from pom.constants.contants import urls
+from pom.pageobjects.parking_cost_calculator import ParkingCostCalculator
+from pom.driver.driver import Driver
 
-from selenium import webdriver
+import time
 
 
 class TestValetParking:
 
     def test_sample_script(self):
-        browser = webdriver.Chrome()
-        browser.get('https://google.com')
-        time.sleep(5)
+
+        parking_cost_calculator = ParkingCostCalculator(Driver.driver)
+        parking_cost_calculator.get()
+
+
+
+
+
 
 

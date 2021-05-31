@@ -1,15 +1,16 @@
 from selenium.webdriver.common.by import By
 from pom.decorators import element, with_webdriver
 from selenium.webdriver.support.ui import Select
-from pom.constants.expected_values import urls
+from pom.constants.contants import urls
+from pom.driver.driver import Driver
 
 
 class ParkingCostCalculator:
 
-    @with_webdriver
     def __init__(self, driver):
         self.driver = driver
 
+    site_url = urls["ParkingCostCalculator"]
     _parking_lot_dropdown = (By.ID, 'ParkingLot')
 
     @property
@@ -18,7 +19,7 @@ class ParkingCostCalculator:
         return self._parking_lot_dropdown
 
     @with_webdriver
-    def get(self, driver, url=urls['ParkingCostCalculator']):
+    def get(self, driver, url=site_url):
         driver.get(url)
 
     def select_valet_parking(self):

@@ -7,7 +7,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 def with_webdriver(original_func):
     def wrapper(self, *args, **kwargs):
         return original_func(self, Driver.driver, *args, **kwargs)
-
     return wrapper
 
 
@@ -17,5 +16,4 @@ def element(original_func):
             expected_conditions.visibility_of_element_located(
                 original_func(*args, **kwargs)))
         return Element(_element, original_func(*args, **kwargs))
-
     return wrapper
