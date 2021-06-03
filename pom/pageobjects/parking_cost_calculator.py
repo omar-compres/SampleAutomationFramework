@@ -13,9 +13,9 @@ class ParkingCostCalculator(Base):
     _starting_time_input = (By.ID, 'StartingTime')
     _leaving_time_input = (By.ID, 'LeavingTime')
     _starting_time_am_radio = (By.XPATH, '//input[@id="StartingTime"]/following-sibling::input[@value="AM"]')
-    _starting_time_fm_radio = (By.XPATH, '//input[@id="StartingTime"]/following-sibling::input[@value="PM"]')
+    _starting_time_pm_radio = (By.XPATH, '//input[@id="StartingTime"]/following-sibling::input[@value="PM"]')
     _leaving_time_am_radio = (By.XPATH, '//input[@id="LeavingTime"]/following-sibling::input[@value="AM"]')
-    _leaving_time_fm_radio = (By.XPATH, '//input[@id="LeavingTime"]/following-sibling::input[@value="PM"]')
+    _leaving_time_pm_radio = (By.XPATH, '//input[@id="LeavingTime"]/following-sibling::input[@value="PM"]')
     _calculate_button = (By.NAME, 'Submit')
     _price_feedback_message = (By.CSS_SELECTOR, '*[class="SubHead"] b')
     _time_difference_message = (By.CSS_SELECTOR, 'span[class="BodyCopy"] b')
@@ -51,8 +51,8 @@ class ParkingCostCalculator(Base):
 
     @property
     @element
-    def starting_time_fm_radio(self):
-        return self._starting_time_fm_radio
+    def starting_time_pm_radio(self):
+        return self._starting_time_pm_radio
 
     @property
     @element
@@ -61,8 +61,8 @@ class ParkingCostCalculator(Base):
 
     @property
     @element
-    def leaving_time_fm_radio(self):
-        return self._leaving_time_fm_radio
+    def leaving_time_pm_radio(self):
+        return self._leaving_time_pm_radio
 
     @property
     @element
