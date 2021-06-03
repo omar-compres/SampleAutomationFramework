@@ -6,3 +6,4 @@ pytest-xdist
 pytest-selenium
 pytest-variables
 delayed-assert
+selenium-page-factory
