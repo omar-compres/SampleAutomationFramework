@@ -61,12 +61,13 @@ class TestShortTermParking:
     def test_for_a_couple_of_days(self):
         page = Factory.parking_cost_calculator
         page.get()
-        page.starting_date_input.send_keys("6/45/2021")
+        page.select_short_term_parking()
+        page.starting_date_input.send_keys("7/01/2021")
         page.starting_time_am_radio.click()
         page.starting_time_input.send_keys("06:00")
-        page.leaving_date_input.send_keys("7/60/2021")
+        page.leaving_date_input.send_keys("7/04/2021")
         page.leaving_time_am_radio.click()
         page.leaving_time_input.send_keys("06:00")
         page.calculate_button.click()
-        assert Factory.utils.is_text_equal(expected_values['incorrect_date_value'],
+        assert Factory.utils.is_text_equal(expected_values['short_three_days_price'],
                                            page.price_feedback_message.text)
