@@ -15,7 +15,7 @@ expected_values = {
     "short_less_than_1_hour": "$ 2.00",
     "short_slightly_less_than_2": "$ 4.00",
     "short_daily_max": "$ 24.00",
-    "short_daily_plus_1.5_hours": "$ 28.00",
+    "short_daily_plus_1.5_hours": "$ 27.00",
     "short_three_days_price": "$ 72.00",
 
     "long_term_garage_hourly_price": "$ 2.00",

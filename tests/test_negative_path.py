@@ -5,7 +5,7 @@ import time
 
 class TestNegativePath:
 
-    def test_negative_time_difference(self):
+    def test_negative_time_difference_same_day(self):
         page = Factory.parking_cost_calculator
         page.get()
         page.starting_date_input.send_keys("6/30/2021")
@@ -13,7 +13,20 @@ class TestNegativePath:
         page.starting_time_input.send_keys("06:00")
         page.leaving_date_input.send_keys("6/30/2021")
         page.leaving_time_am_radio.click()
-        page.leaving_time_input.send_keys("05:59")
+        page.leaving_time_input.send_keys("05:00")
+        page.calculate_button.click()
+        assert Factory.utils.is_text_equal(expected_values['negative_difference'],
+                                           page.price_feedback_message.text)
+
+    def test_negative_time_difference_different_day(self):
+        page = Factory.parking_cost_calculator
+        page.get()
+        page.starting_date_input.send_keys("6/30/2021")
+        page.starting_time_am_radio.click()
+        page.starting_time_input.send_keys("06:00")
+        page.leaving_date_input.send_keys("6/29/2021")
+        page.leaving_time_am_radio.click()
+        page.leaving_time_input.send_keys("05:00")
         page.calculate_button.click()
         assert Factory.utils.is_text_equal(expected_values['negative_difference'],
                                            page.price_feedback_message.text)
