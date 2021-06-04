@@ -9,6 +9,7 @@
 * Python 3
 * Google Chrome
 * Selenium Webdriver for Chrome
+* Java (for allure reports)
 
 ### Steps for Windows
 
@@ -25,8 +26,10 @@
 4. Install all the repository dependencies.
 >`pip3 install -r requirements.txt`
 
-5. Run the tests with the following command or by using your IDE's test module.
->`pytest tests -v`
+5. Run the tests with the following commands to generate an Allure report or use your IDE's test module if the report is not needed.
+>`pytest tests -v --alluredir=test-report/`
+
+>`allure serve test-report/`
 
 ### Steps for Linux
 
@@ -43,5 +46,7 @@
 4. Install all the repository dependencies.
 >`pip3 install -r requirements.txt`
 
-5. Run the tests with the following command or by using your IDE's test module.
->`pytest tests -v`
+5. Run the tests with the following commands to generate an Allure report or use your IDE's test module if the report is not needed.
+>`pytest tests -v --alluredir=test-report/`
+
+>`allure serve test-report/`
