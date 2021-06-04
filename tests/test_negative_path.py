@@ -93,12 +93,12 @@ class TestNegativePath:
     def test_for_non_existent_dates(self):
         page = Factory.parking_cost_calculator
         page.get()
-        page.starting_date_input.send_keys("5/10/2021")
+        page.starting_date_input.send_keys("7/65/2021")
         page.starting_time_am_radio.click()
         page.starting_time_input.send_keys("06:00")
-        page.leaving_date_input.send_keys("5/11/2021")
+        page.leaving_date_input.send_keys("7/85/2021")
         page.leaving_time_am_radio.click()
         page.leaving_time_input.send_keys("06:00")
         page.calculate_button.click()
-        assert Factory.utils.is_text_equal(expected_values['past_dates-error_message'],
+        assert Factory.utils.is_text_equal(expected_values['incorrect_date_value'],
                                            page.price_feedback_message.text)
