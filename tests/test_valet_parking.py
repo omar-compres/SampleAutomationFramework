@@ -1,9 +1,11 @@
 from pom.factory import Factory
 from pom.constants.contants import expected_values
+import allure
 
 
 class TestValetParking:
 
+    @allure.title("Validating minimum rate with a few minutes")
     def test_few_minutes_difference(self):
         page = Factory.parking_cost_calculator
         page.get()
@@ -16,6 +18,7 @@ class TestValetParking:
         page.calculate_button.click()
         assert Factory.utils.is_text_equal(expected_values['valet_less_than_5_hours'], page.price_feedback_message.text)
 
+    @allure.title("Validating minimum rate with 4 hours and 59 minutes")
     def test_few_hours_less_than_5(self):
         page = Factory.parking_cost_calculator
         page.get()
@@ -28,6 +31,7 @@ class TestValetParking:
         page.calculate_button.click()
         assert Factory.utils.is_text_equal(expected_values['valet_less_than_5_hours'], page.price_feedback_message.text)
 
+    @allure.title("Validating minimum rate plus a few additional minutes")
     def test_for_slightly_over_5_hours(self):
         page = Factory.parking_cost_calculator
         page.get()
@@ -41,6 +45,7 @@ class TestValetParking:
         assert Factory.utils.is_text_equal(expected_values['valet_over_5_less_than_24'],
                                            page.price_feedback_message.text)
 
+    @allure.title("Validating daily limit with almost 2 days")
     def test_for_slightly_under_24_hours(self):
         page = Factory.parking_cost_calculator
         page.get()
@@ -54,6 +59,7 @@ class TestValetParking:
         assert Factory.utils.is_text_equal(expected_values['valet_over_5_less_than_24'],
                                            page.price_feedback_message.text)
 
+    @allure.title("Validating daily limit with a couple of days")
     def test_for_a_couple_of_days(self):
         page = Factory.parking_cost_calculator
         page.get()

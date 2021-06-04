@@ -1,9 +1,11 @@
 from pom.factory import Factory
 from pom.constants.contants import expected_values
+import allure
 
 
 class TestLongTermGarageParking:
 
+    @allure.title("Validating minimum rate with a few minutes")
     def test_few_minutes_difference(self):
         page = Factory.parking_cost_calculator
         page.get()
@@ -17,6 +19,7 @@ class TestLongTermGarageParking:
         page.calculate_button.click()
         assert Factory.utils.is_text_equal(expected_values['long_term_garage_hourly_price'], page.price_feedback_message.text)
 
+    @allure.title("Validating minimum rate with 1.5 hours")
     def test_for_slightly_under_two_hours(self):
         page = Factory.parking_cost_calculator
         page.get()
@@ -30,6 +33,7 @@ class TestLongTermGarageParking:
         page.calculate_button.click()
         assert Factory.utils.is_text_equal(expected_values['long_term_garage_1.5_hours'], page.price_feedback_message.text)
 
+    @allure.title("Validating daily limit with 7 hours")
     def test_daily_max(self):
         page = Factory.parking_cost_calculator
         page.get()
@@ -44,6 +48,7 @@ class TestLongTermGarageParking:
         assert Factory.utils.is_text_equal(expected_values['long_term_garage_7_hours'],
                                            page.price_feedback_message.text)
 
+    @allure.title("Validating weekly limits for '6 days and 1 hour.' and for 7 days")
     def test_for_weekly_limits(self):
         page = Factory.parking_cost_calculator
         page.get()
@@ -69,6 +74,7 @@ class TestLongTermGarageParking:
         assert Factory.utils.is_text_equal(expected_values['long_term_garage_7_days'],
                                            page.price_feedback_message.text)
 
+    @allure.title("Validating weekly limit with 14 days")
     def test_for_two_weeks(self):
         page = Factory.parking_cost_calculator
         page.get()
