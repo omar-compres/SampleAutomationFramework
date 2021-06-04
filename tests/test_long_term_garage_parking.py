@@ -15,7 +15,7 @@ class TestLongTermGarageParking:
         page.leaving_time_am_radio.click()
         page.leaving_time_input.send_keys("06:02")
         page.calculate_button.click()
-        assert Factory.utils.is_text_equal(expected_values['short_less_than_1_hour'], page.price_feedback_message.text)
+        assert Factory.utils.is_text_equal(expected_values['long_term_garage_hourly_price'], page.price_feedback_message.text)
 
     def test_for_slightly_under_two_hours(self):
         page = Factory.parking_cost_calculator
@@ -62,7 +62,7 @@ class TestLongTermGarageParking:
         page.starting_date_input.send_keys("7/01/2021")
         page.starting_time_am_radio.click()
         page.starting_time_input.send_keys("06:00")
-        page.leaving_date_input.send_keys("7/07/2021")
+        page.leaving_date_input.send_keys("7/08/2021")
         page.leaving_time_am_radio.click()
         page.leaving_time_input.send_keys("06:00")
         page.calculate_button.click()

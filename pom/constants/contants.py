@@ -23,6 +23,20 @@ expected_values = {
     "long_term_garage_7_hours": "$ 12.00",
     "long_term_garage_6_days_1_hour": "$ 72.00",
     "long_term_garage_7_days": "$ 72.00",
-    "long_term_garage_2_weeks": "$ 144.00"
+    "long_term_garage_2_weeks": "$ 144.00",
+
+    "long_term_surface_hourly_price": "$ 2.00",
+    "long_term_surface_1.5_hours": "$ 4.00",
+    "long_term_surface_6_hours": "$ 10.00",
+    "long_term_surface_6_days_1_hour": "$ 60.00",
+    "long_term_surface_7_days": "$ 60.00",
+    "long_term_surface_2_weeks": "$ 120.00",
+
+    "economy_hourly_price": "$ 2.00",
+    "economy_1.5_hours": "$ 4.00",
+    "economy_5_hours": "$ 9.00",
+    "economy_6_days_1_hour": "$ 54.00",
+    "economy_7_days": "$ 54.00",
+    "economy_2_weeks": "$ 108.00"
 
 }
