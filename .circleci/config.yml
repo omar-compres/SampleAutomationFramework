@@ -11,20 +11,15 @@ jobs:
       - run:
           name: Install Dependencies and Run tests
           command: |
-        # Installing the latest stable version of Chrome.
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i google-chrome-stable_current_amd64.deb
-        # Installing the latest Chrome driver
             LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
             wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
             unzip chromedriver_linux64.zip && sudo ln -s $PWD/chromedriver /usr/local/bin/chromedriver
-        # Installing and activating Virtual Environment
             pip3 install virtualenv
             virtualenv venv
             source venv/bin/activate
-        # Installing the repository dependencies
             pip3 install -r requirements.txt
-        # Run Tests
             pytest /tests -v
 
 
@@ -33,6 +28,5 @@ workflows:
   # Name the workflow
   install requirements and run tests:
     # Run the welcome/run job in its own container
-    # test
     jobs:
       - build and test
