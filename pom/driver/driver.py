@@ -9,12 +9,19 @@ class Driver(object):
     options = Options()
 
     @classmethod
-    def initialize(cls):
-        cls.options.add_argument("--start-maximized")
-        cls.options.add_argument('--headless')
-        cls.options.add_argument('--no-sandbox')
-        cls.options.add_argument('--disable-dev-shm-usage')
-        cls.driver = webdriver.Chrome(options=cls.options)
+    def initialize(cls, **driver_params):
+        cls.headless = driver_params['headless']
+
+        if cls.headless == "true":
+            cls.options.add_argument("--headless")
+            cls.options.add_argument("--window-size=1920,1080")
+            cls.options.add_argument('--no-sandbox')
+            cls.options.add_argument('--disable-dev-shm-usage')
+            cls.driver = webdriver.Chrome(options=cls.options)
+
+        else:
+            cls.options.add_argument("--start-maximized")
+            cls.driver = webdriver.Chrome(options=cls.options)
 
     @classmethod
     def quit(cls):
