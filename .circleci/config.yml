@@ -5,7 +5,7 @@ jobs:
   build and test:
     working_directory: ~/sample-project
     docker:
-      - image: cimg/python:3.8.10
+      - image: mmarinez/python_java8
     steps:
       - checkout
       - run:
