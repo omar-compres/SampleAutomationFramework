@@ -2,14 +2,14 @@
 version: 2.1
 
 jobs:
-  build and test:
+  Run tests:
     working_directory: ~/sample-project
     docker:
       - image: mmarinez/python_java8:allure
     steps:
       - checkout
       - run:
-          name: Install Dependencies and Run tests
+          name: Running tests
           command: |
             pip3 install virtualenv
             virtualenv venv
@@ -21,7 +21,7 @@ jobs:
       # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow
-  install requirements and run tests:
+  Run tests:
     # Run the welcome/run job in its own container
     jobs:
-      - build and test
+      - Run tests
