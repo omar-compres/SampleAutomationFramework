@@ -11,6 +11,9 @@ class Driver(object):
     @classmethod
     def initialize(cls):
         cls.options.add_argument("--start-maximized")
+        cls.options.add_argument('--headless')
+        cls.options.add_argument('--no-sandbox')
+        cls.options.add_argument('--disable-dev-shm-usage')
         cls.driver = webdriver.Chrome(options=cls.options)
 
     @classmethod
