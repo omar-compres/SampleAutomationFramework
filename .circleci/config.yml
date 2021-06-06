@@ -15,7 +15,7 @@ jobs:
             dpkg -i google-chrome-stable_current_amd64.deb
             LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
             wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
-            unzip chromedriver_linux64.zip && sudo ln -s $PWD/chromedriver /usr/local/bin/chromedriver
+            unzip chromedriver_linux64.zip && ln -s $PWD/chromedriver /usr/local/bin/chromedriver
             pip3 install virtualenv
             virtualenv venv
             source venv/bin/activate
