@@ -1,11 +1,13 @@
 from pom.driver.driver import Driver
-import pytest
 import os
 import allure
 
 
-def pytest_runtest_setup():
-    Driver.initialize()
+def pytest_runtest_setup(item):
+    headless = headless_flag(item)
+    driver_params = {"headless": headless}
+
+    Driver.initialize(**driver_params)
 
 
 def pytest_runtest_teardown(item):
@@ -18,3 +20,13 @@ def pytest_runtest_teardown(item):
     allure.attach(str(log), name="Console Logs", attachment_type=allure.attachment_type.TEXT)
 
     Driver.quit()
+
+
+def headless_flag(request):
+    return request.config.getoption("-H")
+
+def pytest_addoption(parser):
+    parser.addoption("-H", "--headless",
+                     dest="headless browser",
+                     default="",
+                     help="Run headless browser")
