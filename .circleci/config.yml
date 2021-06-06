@@ -21,7 +21,7 @@ jobs:
             virtualenv venv
             source venv/bin/activate
             pip3 install -r requirements.txt
-            pytest tests -v
+            pytest tests -v --headless=true
 
 
       # Orchestrate or schedule a set of jobs
