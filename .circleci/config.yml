@@ -5,7 +5,7 @@ jobs:
   build and test:
     working_directory: ~/sample-project
     docker:
-      - image: mmarinez/python_java8
+      - image: mmarinez/python_java8:allure
     steps:
       - checkout
       - run:
