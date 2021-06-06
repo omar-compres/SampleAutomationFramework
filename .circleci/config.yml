@@ -12,7 +12,7 @@ jobs:
           name: Install Dependencies and Run tests
           command: |
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            sudo apt-get install libcurl3
+            sudo apt-get install libcurl4
             sudo dpkg -i google-chrome-stable_current_amd64.deb
             LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
             wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
