@@ -12,8 +12,7 @@ jobs:
           name: Install Dependencies and Run tests
           command: |
             sudo apt-get update
-            sudo apt-get upgrade
-            sudo apt-get dist-upgrade
+            sudo apt-get install libgconf2-4 libnss3-1d libxss1
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i google-chrome-stable_current_amd64.deb
             LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
