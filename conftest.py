@@ -11,7 +11,7 @@ def pytest_runtest_setup(item):
 
 
 def pytest_runtest_teardown(item):
-    filename = 'screenshot-' + item.name
+    filename = 'screenshot-' + item.name + ".png"
     log = Driver.driver.get_log('browser')
 
     Driver.driver.get_screenshot_as_file(os.path.abspath(os.path.join('.', 'screenshots', filename)))
