@@ -1,0 +1,44 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+
+jobs:
+  Run tests:
+    working_directory: ~/sample-project
+    docker:
+      - image: mmarinez/python_java8:allure
+    steps:
+
+      - checkout
+
+      - restore_cache:
+            keys:
+              - v2-dependencies-{{ checksum "requirements.txt" }}
+              # fallback to using the latest cache if no exact match is found
+              - v2-dependencies-
+
+      - run:
+          name: Installing Dependencies
+          command: |
+            pip3 install virtualenv
+            virtualenv venv
+            source venv/bin/activate
+            pip3 install -r requirements.txt
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: v2-dependencies-{{ checksum "requirements.txt" }}
+
+      - run:
+          name: Running Tests
+          command: |
+            source venv/bin/activate
+            pytest tests -v -H=true
+
+      # Orchestrate or schedule a set of jobs
+workflows:
+  # Name the workflow
+  Run tests:
+    # Run the welcome/run job in its own container
+    jobs:
+      - Run tests
