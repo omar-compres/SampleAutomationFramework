@@ -1,7 +1,7 @@
-selenium==3.141
+selenium
 assertlib
 pyvirtualdisplay
-pytest~> 9.0.3
+pytest
 pytest-xdist
 pytest-selenium
 pytest-variables
